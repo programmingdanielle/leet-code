@@ -10,7 +10,9 @@ func main() {
 	// easy cases
 
 	// Merge Strings Alternately
-	word1 := "abc"
-	word2 := "pqr"
-	fmt.Println(ez.MergeAlternately(word1, word2))
+	// word1 := "abc"
+	// word2 := "pqr"
+	// fmt.Println(ez.MergeAlternately(word1, word2))
+
+	fmt.Println(ez.GcdOfStrings("ABC", "ABCABC"))
 }
