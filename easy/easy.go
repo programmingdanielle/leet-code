@@ -53,3 +53,76 @@ func gcd(a, b int) int {
 	}
 	return a
 }
+
+func CanPlaceFlowers(flowerbed []int, n int) bool {
+	// 0 is empty
+	// 1 is not empty
+	// number of new flowers to be planted
+
+	count := 0
+
+	for i, flower := range flowerbed {
+		if flower == 1 {
+			continue
+		}
+
+		// confused why test cases on this fail when they are false instead of true
+		leftIsZero := true
+		rightIsZero := true
+		if i > 0 {
+			if flowerbed[i-1] == 1 {
+				leftIsZero = false
+			}
+		}
+		if i < len(flowerbed)-1 {
+			if flowerbed[i+1] == 1 {
+				rightIsZero = false
+			}
+		}
+		if leftIsZero && rightIsZero {
+			count++
+			flowerbed[i] = 1
+		}
+	}
+	return n <= count
+}
+
+// func KidsWithCandies(candies []int, extraCandies int) []bool {
+// 	// create array called addedCandies of all candies + extraCandies
+// 	// compare addedCandies against original candies ....
+// 	// if the iteration of addedCandies > compared to all candies,
+// 	// append a true bool to a bool array
+
+// 	addedCandies := []int{}
+
+// 	for i := range candies {
+// 		addedCandies = append(addedCandies, candies[i]+extraCandies)
+// 	}
+
+// 	boolAnswer := []bool{}
+// 	// boolHolder := true
+
+// 	type Test struct {
+// 		int
+// 		bool
+// 	}
+
+// 	// mapForStuff := make(map[int]Test)
+
+// 	testBool := true
+
+// 	for d, i := range addedCandies {
+// 		for _, b := range candies {
+// 			// if addedCandies[i] IS NOT greater compared to candies[b]....
+// 			if addedCandies[i] > candies[b] {
+// 				// mapForStuff[addedCandies[d]] = Test{addedCandies[i], false}
+
+// 		}
+// 	}
+
+// 	fmt.Println(mapForStuff)
+// 	fmt.Println(addedCandies)
+// 	fmt.Println("expectation: [true,true,true,false,true]")
+
+// 	return boolAnswer
+// }
