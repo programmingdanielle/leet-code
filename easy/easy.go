@@ -126,3 +126,35 @@ func CanPlaceFlowers(flowerbed []int, n int) bool {
 
 // 	return boolAnswer
 // }
+
+func LongestCommonPrefix(strs []string) string {
+	minLen := len(strs[0])
+	for _, str := range strs {
+		if len(str) < minLen {
+			minLen = len(str)
+		}
+	}
+
+	var emptyString string
+
+	for i := 0; i < minLen; i++ {
+		var prevChar byte
+		flag := true
+		for j, str := range strs {
+			currentChar := str[i]
+			if j > 0 {
+				if prevChar != currentChar {
+					flag = false
+					break
+				}
+			}
+			prevChar = currentChar
+		}
+		if flag {
+			emptyString += string(prevChar)
+		} else {
+			break
+		}
+	}
+	return emptyString
+}

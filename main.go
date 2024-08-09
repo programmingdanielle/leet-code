@@ -21,5 +21,9 @@ func main() {
 
 	// fmt.Println(ez.KidsWithCandies(intOne, intSingle))
 
-	fmt.Println(ez.CanPlaceFlowers([]int{1, 0, 0, 0, 0, 1}, 2))
+	// fmt.Println(ez.CanPlaceFlowers([]int{1, 0, 0, 0, 0, 1}, 2))
+
+	test := []string{"flower", "flow", "flight"}
+
+	fmt.Println(ez.LongestCommonPrefix(test))
 }
